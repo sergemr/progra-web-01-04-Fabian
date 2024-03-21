@@ -1,14 +1,15 @@
 # progra-web-01-04-Fabian
 
-** Lista de compras para usuarios.
-** Requerimientos.
+# Lista de compras para usuarios.
 
-1 Registro
-2 Login
-3 Capacidad de crear productos
-4 Capacidad de crear listas.
-5 Agregar productos a una lista.
-6 Ver listas con los diferentes productos.
+## Requerimientos.
+
+- 1 Registro
+- 2 Login
+- 3 Capacidad de crear productos
+- 4 Capacidad de crear listas.
+- 5 Agregar productos a una lista.
+- 6 Ver listas con los diferentes productos.
 
 - Backend:
   Puedes hacerlo en Python o NodeJS (ya que sabes python mejor hacelo en python)
