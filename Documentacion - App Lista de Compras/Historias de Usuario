@@ -1,0 +1,58 @@
+### Historias de Usuario
+1. **Historia de Usuario: Registro de Usuarios**
+   - **Como** usuario nuevo,
+   - **Quiero** poder registrarme utilizando un nombre de usuario y contraseña,
+   - **Para que** pueda acceder a las funcionalidades de la aplicación.
+   - **Criterios de Aceptación**:
+     - El usuario debe proporcionar un nombre de usuario y una contraseña para registrarse.
+     - La contraseña debe almacenarse de manera segura. (RNF5)
+     - No es necesario confirmar el correo electrónico.
+     - La aplicación debe ser en español. (RNF6)
+   - **Referencia**: RF1, RNF5, RNF6
+
+2. **Historia de Usuario: Inicio de Sesión**
+   - **Como** usuario registrado,
+   - **Quiero** poder iniciar sesión utilizando mi nombre de usuario y contraseña,
+   - **Para que** pueda acceder a mi cuenta y a mis listas de compras.
+   - **Criterios de Aceptación**:
+     - El usuario debe ingresar su nombre de usuario y contraseña para iniciar sesión.
+     - Se debe validar que el nombre de usuario y contraseña coincidan con los datos registrados.
+     - La aplicación debe ser en español. (RNF6)
+   - **Referencia**: RF2, RNF6
+
+3. **Historia de Usuario: Creación de Productos**
+   - **Como** usuario de la aplicación,
+   - **Quiero** poder añadir nuevos productos a la base de datos,
+   - **Para que** puedan ser añadidos a las listas de compra.
+   - **Criterios de Aceptación**:
+     - El usuario puede añadir un producto especificando nombre, cantidad, unidad de medida y estado de compra.
+     - El usuario puede opcionalmente añadir una imagen del producto.
+     - La aplicación debe permitir el desarrollo y uso exclusivamente en español. (RNF6)
+   - **Referencia**: RF3, RNF6
+
+4. **Historia de Usuario: Creación de Listas de Compra**
+   - **Como** usuario registrado,
+   - **Quiero** poder crear múltiples listas de compras,
+   - **Para que** pueda organizar mis compras de manera eficiente.
+   - **Criterios de Aceptación**:
+     - El usuario puede crear una nueva lista de compras y darle un nombre.
+     - La aplicación debe ser en español. (RNF6)
+   - **Referencia**: RF4, RNF6
+
+5. **Historia de Usuario: Gestión de Listas de Compra**
+   - **Como** usuario registrado,
+   - **Quiero** poder añadir productos a mis listas y verlas,
+   - **Para que** pueda gestionar mis compras de manera eficiente.
+   - **Criterios de Aceptación**:
+     - El usuario puede añadir productos existentes en la base de datos a sus listas de compras.
+     - El usuario puede ver los productos añadidos en sus listas de compras.
+     - La aplicación debe ser en español. (RNF6)
+   - **Referencia**: RF5, RNF6
+
+### Consideraciones Generales para el Desarrollo (Incluyendo RNF)
+
+- La aplicación debe desarrollarse utilizando Flask y React con Material UI, asegurando una interfaz intuitiva y accesible, siguiendo los estándares de diseño propuestos. (RNF1, RNF2)
+- Se debe adoptar una paleta de colores suaves inspirada en alimentos y supermercados, junto con tipografías sans-serif fáciles de leer como Roboto o Open Sans. (RNF3)
+- La seguridad y protección de los datos de los usuarios es una prioridad. Se debe implementar autenticación básica y asegurar el almacenamiento seguro de contraseñas. (RNF5)
+- Aunque la interactividad será limitada, es importante incluir retroalimentación en todas las interacciones para mejorar la experiencia del usuario. (RNF3)
+- La aplicación debe ser desarrollada y funcionar plenamente en español. (RNF6)

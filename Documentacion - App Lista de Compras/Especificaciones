@@ -1,0 +1,50 @@
+# Documento de Especificaciones para el Desarrollo de la Aplicación de Lista de Compras
+
+## Requisitos Funcionales
+
+**RF1. Registro de Usuario**
+- Los usuarios pueden crear una cuenta utilizando un nombre de usuario y una contraseña.
+- No se requiere confirmación por correo electrónico.
+
+**RF2. Inicio de Sesión**
+- Los usuarios pueden acceder a sus cuentas mediante un nombre de usuario y contraseña.
+
+**RF3. Creación de Productos**
+- Los usuarios pueden agregar nuevos productos a la base de datos incluyendo:
+  - Nombre
+  - Cantidad
+  - Unidad de medida
+  - Imagen (opcional)
+  - Comprado (booleano)
+- Todos los usuarios tienen acceso para añadir productos a la base de datos.
+
+**RF4. Creación de Listas**
+- Los usuarios pueden crear múltiples listas de compras.
+
+**RF5. Gestión de Listas**
+- Los usuarios pueden añadir productos a sus listas y visualizarlas.
+
+## Requisitos No Funcionales
+
+**RNF1. Backend**
+- Se utilizará Flask para el desarrollo del backend, con SQLAlchemy como ORM para interactuar con una base de datos MySQL.
+
+**RNF2. Frontend**
+- El desarrollo del frontend se realizará con React y Material UI, enfocándose en un diseño intuitivo y accesible.
+
+**RNF3. Diseño y Experiencia de Usuario**
+- Esquema de colores suaves e inspirados en alimentos y supermercados.
+- Tipografía sans-serif para una lectura fácil (Roboto o Open Sans).
+- Diseño intuitivo con espacios adecuados para una navegación cómoda.
+- Uso de iconos de Material Design para acciones claras y reconocibles.
+- Interactividad limitada a feedback en todas las interacciones, sin animaciones específicas.
+- Diseño adaptativo limitado a desktops y laptops.
+
+**RNF4. Accesibilidad**
+- Uso de propiedades ARIA para mejorar la accesibilidad, sin necesidad de cumplir con estándares específicos.
+
+**RNF5. Seguridad y Protección de Datos**
+- Autenticación básica sin requisitos de conformidad específicos para la protección de datos.
+
+**RNF6. Idioma**
+- La aplicación será desarrollada exclusivamente en español.
