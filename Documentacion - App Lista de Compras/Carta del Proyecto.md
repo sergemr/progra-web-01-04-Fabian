@@ -9,8 +9,8 @@ El proyecto abarcará el desarrollo del backend, frontend y la base de datos de 
 ### Requerimientos Funcionales
 1. **Registro de Usuarios**: Permitir a los usuarios crear una cuenta en la aplicación.
 2. **Inicio de Sesión**: Permitir a los usuarios acceder a sus cuentas mediante un sistema de autenticación.
-3. **Creación de Productos**: Facilitar a los usuarios la capacidad de añadir nuevos productos a la base de datos.
-4. **Creación de Listas**: Permitir a los usuarios crear múltiples listas de compras.
+3. **Operaciones CRUD de Productos**: Facilitar a los usuarios la capacidad de hacer operaciones CRUD de productos a la base de datos.
+4. **Operaciones CRUD de Listas**: Permitir a los usuarios hacer operaciones CRUD a las listas de compras.
 5. **Gestión de Listas**: Posibilitar a los usuarios agregar productos a sus listas y visualizarlas.
 
 ### Componentes Técnicos
@@ -30,6 +30,6 @@ El proyecto abarcará el desarrollo del backend, frontend y la base de datos de 
 - **Feedback y Validación**: Proporcionar feedback claro y validación de datos para guiar y asegurar al usuario durante su interacción con la aplicación.
 
 ## Consideraciones Finales
-- **Periodo de Desarrollo**: El proyecto se desarrollará en un periodo de dos semanas.
+- **Periodo de Desarrollo**: El proyecto se desarrollará en un periodo de tres semanas.
 - **Presupuesto**: El presupuesto total asignado para el proyecto es de 200 dólares. Este presupuesto cubrirá los costos asociados con herramientas de desarrollo, recursos de diseño y cualquier otro gasto operativo necesario durante el periodo de desarrollo.
 - **Equipo de Proyecto**: Fabian Sanchez
