@@ -22,3 +22,18 @@ class ControladorUsuarios:
         
         return jsonify({"mensaje": "Usuario creado exitosamente."}), 201
 
+    @staticmethod
+    def login_usuario():
+        data = request.get_json()
+        nombre_usuario = data.get('nombreUsuario')
+        contrasena = data.get('contrasena')
+
+        if not nombre_usuario or not contrasena:
+            return jsonify({"error": "Nombre de usuario y contraseña son requeridos"}), 400
+        
+        usuario = Usuario.query.filter_by(nombre_usuario=nombre_usuario).first()
+        if usuario is None or not usuario.verificar_contrasena(contrasena):
+            return jsonify({"error": "Credenciales incorrectas"}), 401
+        
+        token = create_access_token(identity=nombre_usuario)
+        return jsonify({"mensaje": "Inicio de sesión exitoso", "token": token}), 200
