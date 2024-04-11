@@ -7,6 +7,7 @@ from flask_jwt_extended import JWTManager
 
 # Importar los blueprints (componentes) de la aplicación
 from backend.api.usuarios import usuarios_bp
+from backend.api.productos import productos_bp
 
 # Definir la función para crear y configurar la instancia de la aplicación Flask
 def crear_app(environment=None):
@@ -40,6 +41,7 @@ def crear_app(environment=None):
 
     # Registrar blueprints (componentes) con la instancia de la aplicación Flask
     app.register_blueprint(usuarios_bp)  # Registrar el blueprint de usuarios con un prefijo de URL
+    app.register_blueprint(productos_bp)
 
     # Inicializar Flask-JWT-Extended con la instancia de la aplicación Flask
     JWTManager(app)
