@@ -1,7 +1,7 @@
 import json
 from backend.app.modelos import Usuario
 
-class TestControladorUsuarios:
+class TestsRegistroUsuario:
     def test_registro_usuario_exitoso(self, client, session):
         """
         Test para verificar que un usuario se puede registrar correctamente.
