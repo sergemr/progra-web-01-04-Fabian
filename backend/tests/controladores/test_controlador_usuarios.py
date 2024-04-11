@@ -51,7 +51,7 @@ class TestsRegistroUsuario:
 class TestsLoginUsuario:
     def test_login_exitoso(self, client, session):
         """
-        Test to verify that login is successful with valid credentials.
+        Prueba para verificar que el inicio de sesión es exitoso con credenciales válidas.
         """
         nombre_usuario = "usuarioValido"
         contrasena = "contrasenaValida"
@@ -68,7 +68,7 @@ class TestsLoginUsuario:
 
     def test_login_usuario_no_existente(self, client, session):
         """
-        Test to verify that login fails if the user does not exist.
+        Prueba para verificar que el inicio de sesión falla si el usuario no existe.
         """
         data = {"nombreUsuario": "usuarioNoExistente", "contrasena": "contrasenaRandom"}
         response = client.post("/v1/login", data=json.dumps(data), content_type='application/json')
@@ -78,7 +78,7 @@ class TestsLoginUsuario:
 
     def test_login_contrasena_incorrecta(self, client, session):
         """
-        Test to verify that login fails if the password is incorrect.
+        Prueba para verificar que el inicio de sesión falla si la contraseña es incorrecta.
         """
         nombre_usuario = "usuarioValido2"
         contrasena = "contrasenaValida2"
@@ -95,7 +95,7 @@ class TestsLoginUsuario:
 
     def test_login_sin_nombre_usuario(self, client, session):
         """
-        Test to verify that login fails if the username is missing.
+        Prueba para verificar que el inicio de sesión falla si falta el nombre de usuario.
         """
         data = {"contrasena": "algunaContrasena"}
         response = client.post("/v1/login", data=json.dumps(data), content_type='application/json')
@@ -105,7 +105,7 @@ class TestsLoginUsuario:
 
     def test_login_sin_contrasena(self, client, session):
         """
-        Test to verify that login fails if the password is missing.
+        Prueba para verificar que el inicio de sesión falla si falta la contraseña.
         """
         data = {"nombreUsuario": "usuarioPrueba"}
         response = client.post("/v1/login", data=json.dumps(data), content_type='application/json')
