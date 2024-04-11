@@ -9,8 +9,8 @@ class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, name='IDUsuario')
     nombre_usuario = db.Column('NombreUsuario', db.String(50), nullable=False, unique=True)
     hash_contrasena = db.Column('HashContrasena', db.String(255), nullable=False)
-    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc))
-    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc))
+    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=db.func.now())
+    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
     # Add cascade="all, delete-orphan" for cascading deletes
     listas_compras = db.relationship('ListaCompra', backref='usuario', lazy=True, cascade="all, delete-orphan")
 
@@ -25,8 +25,8 @@ class Producto(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, name='IDProducto')
     nombre = db.Column('Nombre', db.String(100), nullable=False)
     tipo_medida = db.Column('TipoMedida', db.String(50), nullable=False)
-    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc))
-    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc))
+    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=db.func.now())
+    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
     listas_productos = db.relationship('ProductoLista', backref='producto', lazy=True)
 
 class ListaCompra(db.Model):
@@ -35,8 +35,8 @@ class ListaCompra(db.Model):
     id_usuario = db.Column('IDUsuario', db.Integer, db.ForeignKey('usuarios.IDUsuario'), nullable=False)
     nombre = db.Column('Nombre', db.String(100), nullable=False)
     estado = db.Column('Estado', db.String(20), nullable=False, default='Pendiente')
-    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc))
-    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc))
+    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=db.func.now())
+    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
     # Add cascade="all, delete-orphan" for cascading deletes
     productos = db.relationship('ProductoLista', backref='lista_compra', lazy=True, cascade="all, delete-orphan")
 
@@ -47,5 +47,5 @@ class ProductoLista(db.Model):
     id_lista = db.Column('IDLista', db.Integer, db.ForeignKey('listas_compras.IDLista'), nullable=False)
     cantidad = db.Column('Cantidad', db.Integer, nullable=False)
     comprado = db.Column('Comprado', db.Boolean, nullable=False, default=False)
-    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc))
-    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc))
+    creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=db.func.now())
+    actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
