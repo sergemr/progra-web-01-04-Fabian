@@ -125,5 +125,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-backend/venv-listaComprasApp/*
+
+# Python
+venv-listascompras
 __pycache__
+
+# VSCode
+.vscode

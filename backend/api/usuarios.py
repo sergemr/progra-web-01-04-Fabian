@@ -1,5 +1,5 @@
 from flask import Blueprint
-from controladores.controlador_usuarios import ControladorUsuarios
+from backend.controladores.controlador_usuarios import ControladorUsuarios
 
 # Definiendo el Blueprint para el módulo de usuarios
 usuarios_bp = Blueprint('usuarios_bp', __name__)

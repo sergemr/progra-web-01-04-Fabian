@@ -1,5 +1,4 @@
 from backend.app import crear_app, db
-from sqlalchemy import text
 from flask_cors import CORS  # Importar CORS para manejar el intercambio de recursos de origen cruzado
 
 # Crear una instancia de la aplicación con el entorno de desarrollo
