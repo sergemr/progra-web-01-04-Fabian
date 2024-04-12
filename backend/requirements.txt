@@ -1,0 +1,13 @@
+Flask
+Flask-SQLAlchemy
+pymysql
+python-dotenv
+pytest
+pytest-flask
+pytest-mock
+Flask-Testing
+flask_cors
+cryptography
+flask_jwt_extended
+flask_migrate
+flask-bcrypt
