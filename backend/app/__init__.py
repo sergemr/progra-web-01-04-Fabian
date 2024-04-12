@@ -40,7 +40,7 @@ def crear_app(environment=None):
     db.init_app(app)
 
     # Registrar blueprints (componentes) con la instancia de la aplicación Flask
-    app.register_blueprint(usuarios_bp)  # Registrar el blueprint de usuarios con un prefijo de URL
+    app.register_blueprint(usuarios_bp)
     app.register_blueprint(productos_bp)
 
     # Inicializar Flask-JWT-Extended con la instancia de la aplicación Flask

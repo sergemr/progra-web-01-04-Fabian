@@ -6,3 +6,7 @@ productos_bp = Blueprint('productos_bp', __name__)
 
 # Punto de acceso de la API para agregar productos
 productos_bp.route('/v1/productos', methods=['POST'])(ControladorProductos.agregar_producto)
+
+# Puntos de acceso de la API para consultar productos
+productos_bp.route('/v1/productos', methods=['GET'])(ControladorProductos.consultar_productos)
+productos_bp.route('/v1/productos/<int:productoID>', methods=['GET'])(ControladorProductos.consultar_producto_por_id)
