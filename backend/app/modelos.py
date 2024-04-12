@@ -34,7 +34,7 @@ class ListaCompra(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, name='IDLista')
     id_usuario = db.Column('IDUsuario', db.Integer, db.ForeignKey('usuarios.IDUsuario'), nullable=False)
     nombre = db.Column('Nombre', db.String(100), nullable=False)
-    estado = db.Column('Estado', db.String(20), nullable=False, default='Pendiente')
+    completa = db.Column('Completa', db.Boolean, nullable=False, default=True)
     creado_en = db.Column('CreadoEn', db.DateTime, nullable=False, default=db.func.now())
     actualizado_en = db.Column('ActualizadoEn', db.DateTime, nullable=False, default=db.func.now(), onupdate=db.func.now())
     # Add cascade="all, delete-orphan" for cascading deletes
