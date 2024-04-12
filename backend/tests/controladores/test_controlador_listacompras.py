@@ -22,7 +22,7 @@ class TestCrearListaCompras:
             'Authorization': f'Bearer {token}'
         }
         data = {'nombre': 'Groceries'}
-        response = client.post('/v1/listas', headers=headers, data=json.dumps(data), content_type='application/json')
+        response = client.post('/v1/listascompras', headers=headers, data=json.dumps(data), content_type='application/json')
         assert response.status_code == 201
         assert 'Lista de compras creada exitosamente.' in response.get_json()['mensaje']
         assert ListaCompra.query.count() == 1  # Asegura que la lista haya sido creada
@@ -33,7 +33,7 @@ class TestCrearListaCompras:
             'Authorization': f'Bearer {token}'
         }
         data = {}
-        response = client.post('/v1/listas', headers=headers, data=json.dumps(data), content_type='application/json')
+        response = client.post('/v1/listascompras', headers=headers, data=json.dumps(data), content_type='application/json')
         assert response.status_code == 400
         assert 'El nombre de la lista es requerido' in response.get_json()['error']
 
@@ -45,13 +45,13 @@ class TestCrearListaCompras:
         data = {'nombre': 'Groceries'}
         # Simula que el usuario no existe proporcionando un token con una identidad de usuario inexistente
         bad_token = create_access_token(identity="nonexistentuser")
-        response = client.post('/v1/listas', headers={'Authorization': f'Bearer {bad_token}'}, data=json.dumps(data), content_type='application/json')
+        response = client.post('/v1/listascompras', headers={'Authorization': f'Bearer {bad_token}'}, data=json.dumps(data), content_type='application/json')
         assert response.status_code == 404
         assert 'Usuario no encontrado' in response.get_json()['error']
 
     def test_crear_lista_compras_sin_token(self, client):
         """ Prueba la respuesta cuando no se proporciona un token. """
         data = {'nombre': 'Groceries'}
-        response = client.post('/v1/listas', data=json.dumps(data), content_type='application/json')
+        response = client.post('/v1/listascompras', data=json.dumps(data), content_type='application/json')
         assert response.status_code == 401
         assert 'Missing Authorization Header' in response.get_json()['msg']
