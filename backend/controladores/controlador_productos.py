@@ -44,3 +44,38 @@ class ControladorProductos:
         else:
             # Devolver un mensaje de error si el producto no se encuentra
             return jsonify({"error": "Producto no encontrado"}), 404
+
+    @staticmethod
+    @jwt_required()
+    def actualizar_producto(productoID):
+        data = request.get_json()
+        producto = Producto.query.get(productoID)
+
+        if not producto:
+            return jsonify({"error": "Producto no encontrado"}), 404
+
+        updated = False
+        if 'nombre' in data:
+            producto.nombre = data['nombre']
+            updated = True
+        if 'tipo_medida' in data:
+            producto.tipo_medida = data['tipo_medida']
+            updated = True
+
+        if not updated:
+            return jsonify({"error": "Ninguna propiedad provista para actualización"}), 400
+
+        db.session.commit()
+        return jsonify({"mensaje": "Producto actualizado exitosamente."}), 200
+
+    @staticmethod
+    @jwt_required()
+    def eliminar_producto(productoID):
+        producto = Producto.query.get(productoID)
+        if not producto:
+            return jsonify({"error": "Producto no encontrado"}), 404
+        
+        db.session.delete(producto)
+        db.session.commit()
+        
+        return jsonify({"mensaje": "Producto eliminado exitosamente."}), 200
