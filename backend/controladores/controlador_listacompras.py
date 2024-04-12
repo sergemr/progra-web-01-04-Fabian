@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from backend.app.modelos import db, ListaCompra, Usuario
+from backend.app.modelos import db, ListaCompra, Usuario, Producto, ProductoLista
 
 class ControladorListaCompras:
     """
@@ -33,3 +33,38 @@ class ControladorListaCompras:
         db.session.commit()
 
         return jsonify({"mensaje": "Lista de compras creada exitosamente."}), 201
+
+    @staticmethod
+    @jwt_required()
+    def agregar_producto_a_lista(listaID):
+        """
+        Adds a product to a shopping list with specified quantity.
+        """
+        user_id = get_jwt_identity()
+        data = request.get_json()
+        
+        # Validations
+        if 'id_producto' not in data or 'cantidad' not in data:
+            return jsonify({"error": "Información proporcionada inválida o incompleta"}), 400
+        
+        # Find the shopping list
+        lista_compra = ListaCompra.query.filter_by(id=listaID).first()
+        if not lista_compra:
+            return jsonify({"error": "Lista de compras no encontrada"}), 404
+        
+        # Check if the product exists
+        producto = Producto.query.get(data['id_producto'])
+        if not producto:
+            return jsonify({"error": "Producto no encontrado"}), 404
+        
+        # Create new ProductoLista entry
+        nuevo_producto_lista = ProductoLista(
+            id_lista=listaID,
+            id_producto=data['id_producto'],
+            cantidad=data['cantidad'],
+            comprado=False  # default value
+        )
+        db.session.add(nuevo_producto_lista)
+        db.session.commit()
+
+        return jsonify({"mensaje": "Producto agregado exitosamente a la lista"}), 201
